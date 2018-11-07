@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { App } from "ionic-angular";
 
+import { HomePage } from '../pages/home/home';
 import { CalenderPage } from '../pages/calender/calender';
 import { SettingsPage } from '../pages/settings/settings';
 import { PicturePage } from '../pages/picture/picture';
@@ -18,7 +19,7 @@ export class PageService {
 
   goHome(key){
     let nav = this.app.getActiveNav();
-    nav.goToRoot({},{Type: key});
+    nav.push( HomePage, {Type: key});
   }
 
   goPicture(){
