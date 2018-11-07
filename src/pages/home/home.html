@@ -1,14 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  Here I demonstrate the functionality of going to different pages
+  <div (click)="goCalender()">
+    Calender
+  </div>
+  <div (click)="goList(0)">
+    ListView normal
+  </div>
+  <div (click)="goList(1)">
+    ListView rotten
+  </div>
+  <div (click)="goPicture()">
+    Picture
+  </div>
+  <div (click)="goSettings()">
+    Settings
+  </div>
 </ion-content>
