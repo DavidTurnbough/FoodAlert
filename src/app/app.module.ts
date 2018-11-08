@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { CalenderPage } from '../pages/calender/calender';
 import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
+import { QRScanner,QRScannerStatus } from '@ionic-native/qr-scanner';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SettingsPage } from '../pages/settings/settings';
     StatusBar,
     SplashScreen,
     PageService,
+    QRScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
