@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Calendar } from '@ionic-native/calendar';
 
 import { PageService } from '../providers/PageService';
 import { MyApp } from './app.component';
@@ -35,6 +36,7 @@ import { SettingsPage } from '../pages/settings/settings';
     StatusBar,
     SplashScreen,
     PageService,
+    Calendar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
