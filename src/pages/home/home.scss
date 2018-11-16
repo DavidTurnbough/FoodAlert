@@ -1,3 +1,19 @@
 page-home {
 
 }
+
+#sorter{
+  display:inline-block;
+}
+
+#sorter div{
+  width:20%;
+  background-color: white;
+  padding:0;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+}
+#sorter button{
+  background: none;
+}

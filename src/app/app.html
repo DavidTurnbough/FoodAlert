@@ -2,22 +2,30 @@
 <ion-nav [root]="rootPage"></ion-nav>
 
 <!-- Universal Header -->
-<ion-header id="main-header">
-  <button ion-button menuToggle="left" >
-      <ion-icon name="menu"></ion-icon>
-  </button>
-FoodAlert
+<ion-header id="main-header" no-border>
+  <ion-toolbar transparent>
+    <button ion-button menuToggle="left" >
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    FoodAlert
+  </ion-toolbar>
 </ion-header>
 
 <!-- Hamburger Menu -->
 <ion-menu [content] = "hamMenu" class="" side="left" type="overlay">
     <div id = "hamMain">
-      <div (click)="goCalender()">Calender</div>
-      <div (click)="goList(0)">Good food</div>
-      <div (click)="goList(1)">Rotten Food</div>
-      <div (click)="goPicture()">Take a Picture </div>
+      <div (click)="goCalender()">Calender</div><hr/>
+      <div (click)="goList(0)">Good food</div><hr/>
+      <div (click)="goList(1)">Rotten Food</div><hr/>
+      <div (click)="goPicture()">Take a Picture </div><hr/>
       <div (click)="goSettings()">Calender</div>
     </div>
 </ion-menu>
 
 <div #hamMenu #content></div>
+
+<!-- Universal footer for some pages-->
+<ion-footer id="addFoot">
+  <button class="Nav" (click) = "sorTog('Name')">
+    <h4> Add item </h4></button>
+</ion-footer>

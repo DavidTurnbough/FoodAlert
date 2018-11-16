@@ -10,8 +10,14 @@ export class HomePage {
 
   //Page Variables
   Type = 0;
+  sortBy = 'none';
+  down = false;
 
   constructor(public navParams: NavParams) {
     this.Type = navParams.get("Type");
+  }
+
+  sorTog(s){
+    sortBy = s;
   }
 }
