@@ -14,11 +14,11 @@
 <!-- Hamburger Menu -->
 <ion-menu [content] = "hamMenu" class="" side="left" type="overlay">
     <div id = "hamMain">
-      <div (click)="goCalender()">Calender</div><hr/>
-      <div (click)="goList(0)">Good food</div><hr/>
-      <div (click)="goList(1)">Rotten Food</div><hr/>
-      <div (click)="goPicture()">Take a Picture </div><hr/>
-      <div (click)="goSettings()">Calender</div>
+      <div menuClose (click)="goCalender()">Calender</div><hr/>
+      <div menuClose (click)="goList(0)">Good food</div><hr/>
+      <div menuClose (click)="goList(1)">Rotten Food</div><hr/>
+      <div menuClose (click)="goPicture()">Take a Picture </div><hr/>
+      <div menuClose (click)="goSettings()">Calender</div>
     </div>
 </ion-menu>
 

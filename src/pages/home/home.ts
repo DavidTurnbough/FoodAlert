@@ -18,6 +18,6 @@ export class HomePage {
   }
 
   sorTog(s){
-    sortBy = s;
+    this.sortBy = s;
   }
 }
