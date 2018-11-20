@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { CalenderPage } from '../pages/calender/calender';
 import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
+import { ExpirationDataServiceProvider } from '../providers/expiration-data-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SettingsPage } from '../pages/settings/settings';
     SplashScreen,
     PageService,
     Calendar,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ExpirationDataServiceProvider
   ]
 })
 export class AppModule {}
