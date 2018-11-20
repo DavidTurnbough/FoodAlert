@@ -1,0 +1,27 @@
+{
+    "items":[
+      {"name":"Apple", "counterTop":14, "refrigerator":30},
+      {"name":"Avocado", "counterTop":3, "refrigerator":7},
+      {"name":"Banana", "counterTop":2, "refrigerator":2},
+      {"name":"Blueberrie", "counterTop":2, "refrigerator":5},
+      {"name":"Cantaloupe", "counterTop":5, "refrigerator":10},
+      {"name":"Cherries", "counterTop":2, "refrigerator":5},
+      {"name":"Coconuts", "counterTop":7, "refrigerator":14},
+      {"name":"Figs", "counterTop":2, "refrigerator":5},
+      {"name":"Grapefruit", "counterTop":14, "refrigerator":35},
+      {"name":"Grapes", "counterTop":3, "refrigerator":90},
+      {"name":"Honeydew", "counterTop":5, "refrigerator":10},
+      {"name":"Kiwi", "counterTop":7, "refrigerator":7},
+      {"name":"Lemons", "counterTop":14, "refrigerator":30},
+      {"name":"Limes", "counterTop":14, "refrigerator":30},
+      {"name":"Mangoes", "counterTop":5, "refrigerator":7},
+      {"name":"Oranges", "counterTop":14, "refrigerator":30},
+      {"name":"Peaches", "counterTop":3, "refrigerator":4},
+      {"name":"Pears", "counterTop":3, "refrigerator":5},
+      {"name":"PineApple", "counterTop":2, "refrigerator":4},
+      {"name":"Pumpkins", "counterTop":60, "refrigerator":90},
+      {"name":"Strawberries", "counterTop":1, "refrigerator":5},
+      {"name":"Tomatoes", "counterTop":7, "refrigerator":14},
+      {"name":"Watermelon", "counterTop":7, "refrigerator":14}
+    ]
+}
