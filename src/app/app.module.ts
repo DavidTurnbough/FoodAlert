@@ -12,6 +12,8 @@ import { CalenderPage } from '../pages/calender/calender';
 import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
 
+import { NgCalendarModule  } from 'ionic2-calendar';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,6 +23,7 @@ import { SettingsPage } from '../pages/settings/settings';
     SettingsPage
   ],
   imports: [
+    NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
