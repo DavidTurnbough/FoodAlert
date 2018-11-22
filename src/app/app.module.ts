@@ -13,6 +13,8 @@ import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
 import { ExpirationDataServiceProvider } from '../providers/expiration-data-service';
 
+import { NgCalendarModule  } from 'ionic2-calendar';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +24,7 @@ import { ExpirationDataServiceProvider } from '../providers/expiration-data-serv
     SettingsPage
   ],
   imports: [
+    NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
