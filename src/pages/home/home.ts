@@ -14,6 +14,7 @@ export class HomePage {
   sortBy = 'none';
   down = false;
   Food = null;
+  storage = "";
 
   constructor(public navParams: NavParams, public exp: ExpirationDataServiceProvider) {
     this.Type = navParams.get("Type");
@@ -26,7 +27,16 @@ export class HomePage {
 
   getDate(name,date,type){
 
-    this.exp.getExpirationDate();
-    document.write("<p>" + Date() + "</p>");
+    if(type == 0)
+      this.storage = "counterTop";
+    else
+      this.storage = 'refrigerator';
+
+    return this.exp.getExpirationDate(name, new Date(date),this.storage);
   }
+
+  getDateForm(date){
+      return new Date(date);
+    }
+
 }
