@@ -10,5 +10,10 @@
 </ion-header>
 
 <ion-content padding>
-  This is the listview page
+  <div *ngFor="let item of Food">
+    <h2>{{item.name}}</h2>
+	  <h2>{{item.date}}</h2>
+    <h2>Expiration Date</h2>
+    <button>storageMethod</button>
+  </div>
 </ion-content>
