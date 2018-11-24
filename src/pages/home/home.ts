@@ -15,10 +15,12 @@ export class HomePage {
   down = false;
   Food = null;
   storage = "";
+  Today = null;
 
   constructor(public navParams: NavParams, public exp: ExpirationDataServiceProvider) {
     this.Type = navParams.get("Type");
     this.Food = items.Food;
+    this.getToday();
   }
 
   sorTog(s){
@@ -36,7 +38,22 @@ export class HomePage {
   }
 
   getDateForm(date){
-      return new Date(date);
+      return this.formatDate(new Date(date));
     }
+
+  formatDate(date){
+    return date.toLocaleString().split(',')[0];
+  }
+
+  getToday(){
+    this.Today = new Date();
+  }
+
+  toggleStor(item){
+    if(item.type == 0)
+      item.type = 1;
+    else
+      item.type = 0;
+  }
 
 }
