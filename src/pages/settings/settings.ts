@@ -8,7 +8,18 @@ import { NavController, NavParams} from 'ionic-angular';
 
 export class SettingsPage{
 
+  status="On";
   constructor(public navCtrl: NavController) {
   }
 
+  changeStatus(){
+    if(this.status === "On"){
+      this.status = "Off";
+    }
+    else
+    {
+      this.status = "On";
+    }
+    document.getElementById("toggle").innerHTML = this.status;
+  }
 }

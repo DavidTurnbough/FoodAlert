@@ -3,29 +3,31 @@
 
 <!-- Universal Header -->
 <ion-header id="main-header" no-border>
-  <ion-toolbar transparent>
-    <button ion-button menuToggle="left" >
+  <ion-toolbar transparent id="main-tool">
+    <button ion-button menuToggle="left" left>
         <ion-icon name="menu"></ion-icon>
     </button>
-    FoodAlert
+    <ion-title center id="title">
+      Food Alert
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <!-- Hamburger Menu -->
-<ion-menu [content] = "hamMenu" class="" side="left" type="overlay">
+<ion-menu [content] = "hamMenu" id="ham" side="left" type="overlay">
     <div id = "hamMain">
-      <div menuClose (click)="goCalender()">Calender</div><hr/>
-      <div menuClose (click)="goList(0)">Good food</div><hr/>
-      <div menuClose (click)="goList(1)">Rotten Food</div><hr/>
-      <div menuClose (click)="goPicture()">Take a Picture </div><hr/>
-      <div menuClose (click)="goSettings()">Settings</div>
+      <div menuClose (click)="goCalender()">Calendar</div><hr/>
+      <div menuClose (click)="goList(0)">Unexpired Food</div><hr/>
+      <div menuClose (click)="goList(1)">Expired Food</div><hr/>
+      <div menuClose (click)="goPicture()">Store A Reciept</div><hr/>
+      <div menuClose (click)="goSettings()">Settings</div><hr/>
     </div>
+    <div id="extra">Log Out</div>
 </ion-menu>
 
 <div #hamMenu #content></div>
 
 <!-- Universal footer for some pages-->
-<ion-footer id="addFoot">
-  <button class="Nav" (click) = "goPicture()">
-    <h4> Add item </h4></button>
+<ion-footer id="addFoot" no-border>
+  <button (click) = "goPicture()"><img/></button>
 </ion-footer>

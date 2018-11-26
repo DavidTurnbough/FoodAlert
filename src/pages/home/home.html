@@ -1,35 +1,40 @@
-<ion-header>
+<ion-header id = "filtHead">
   <div id="sorter" >
     <div><button (click) = "sorTog('Name')">
       <h4> Name </h4></button></div>
     <div><button (click) = "sorTog('PDate')">
       <h4> Purchase Date </h4></button></div>
     <div><button (click) = "sorTog('RDate')">
-      <h4> Rotten Date </h4></button></div>
+      <h4> Expiration Date </h4></button></div>
     <div><button (click) = "sorTog('RDate')">
-      <h4> Storage Method </h4></button></div>
+      <h4 *ngIf="this.Type == 0"> Storage Method </h4>
+      <h4 *ngIf="this.Type == 1"> Remove Item</h4></button>
+    </div>
   </div>
 </ion-header>
 
-<ion-content (onload)="getToday" padding>
-  <div *ngFor="let item of Food">
+<ion-content (onload)="getToday" id="FFeed">
+  <span *ngFor="let item of Food" >
   <span *ngIf="getDate(item.name,item.date,item.type).getTime() < Today.getTime() && this.Type == 1">
-    <h2>{{item.name}}</h2>
-	  <h2>{{getDateForm(item.date)}}</h2>
-    <h2>{{this.formatDate(getDate(item.name,item.date,item.type))}}</h2>
-    <button (click)=toggleStor(item) id ="typeButton">
-      <h2 *ngIf="item.type == 0">CounterTop</h2>
-      <h2 *ngIf="item.type == 1">Refrigerated</h2>
-    </button>
+    <div id="Food">
+      <h2>{{item.name}}</h2>
+  	  <h2>{{getDateForm(item.date)}}</h2>
+      <h2>{{this.formatDate(getDate(item.name,item.date,item.type))}}</h2>
+      <button (click)=toggleStor(item) id ="typeButton">
+        <h2>Remove</h2>
+      </button>
+    </div>
   </span>
   <span *ngIf="getDate(item.name,item.date,item.type).getTime() >= Today.getTime() && this.Type == 0">
-    <h2>{{item.name}}</h2>
-    <h2>{{getDateForm(item.date)}}</h2>
-    <h2>{{this.formatDate(getDate(item.name,item.date,item.type))}}</h2>
-    <button (click)=toggleStor(item) id ="typeButton">
-      <h2 *ngIf="item.type == 0">CounterTop</h2>
-      <h2 *ngIf="item.type == 1">Refrigerated</h2>
-    </button>
+    <div id="Food">
+      <h2>{{item.name}}</h2>
+      <h2>{{getDateForm(item.date)}}</h2>
+      <h2>{{this.formatDate(getDate(item.name,item.date,item.type))}}</h2>
+      <button (click)=toggleStor(item) id ="typeButton">
+        <h2 *ngIf="item.type == 0">CounterTop</h2>
+        <h2 *ngIf="item.type == 1">Refrigerated</h2>
+      </button>
+    </div>
   </span>
-  </div>
+  </span>
 </ion-content>
