@@ -15,7 +15,7 @@ export class MyApp {
   rootPage:any = HomePage;
   @ViewChild(Nav) navCtrl: Nav;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public pageService: PageService,) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public pageService: PageService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

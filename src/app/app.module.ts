@@ -11,7 +11,10 @@ import { CalenderPage } from '../pages/calender/calender';
 import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { Toast } from '@ionic-native/toast'
+import { Toast } from '@ionic-native/toast';
+import { ItemDataServiceProvider } from '../providers/item-data-service';
+import { File } from '@ionic-native/file';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { Toast } from '@ionic-native/toast'
     PageService,
     BarcodeScanner,
     Toast,
+    ItemDataServiceProvider,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
