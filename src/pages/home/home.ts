@@ -28,7 +28,6 @@ export class HomePage {
   }
 
   getDate(name,date,type){
-
     if(type == 0)
       this.storage = "counterTop";
     else
@@ -56,4 +55,7 @@ export class HomePage {
       item.type = 0;
   }
 
+    /*this.exp.getExpirationDate();
+    document.write("<p>" + Date() + "</p>");
+  }*/
 }
