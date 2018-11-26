@@ -14,8 +14,11 @@ import { PicturePage } from '../pages/picture/picture';
 import { SettingsPage } from '../pages/settings/settings';
 import { ExpirationDataServiceProvider } from '../providers/expiration-data-service';
 import { NotifcationServiceProvider } from '../providers/notifcation-service';
-
 import { NgCalendarModule  } from 'ionic2-calendar';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Toast } from '@ionic-native/toast';
+import { ItemDataServiceProvider } from '../providers/item-data-service';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,11 @@ import { NgCalendarModule  } from 'ionic2-calendar';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ExpirationDataServiceProvider,
     LocalNotifications,
-    NotifcationServiceProvider
+    NotifcationServiceProvider,
+    BarcodeScanner,
+    Toast,
+    ItemDataServiceProvider,
+    File,
   ]
 })
 export class AppModule {}

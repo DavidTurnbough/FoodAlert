@@ -54,8 +54,4 @@ export class HomePage {
     else
       item.type = 0;
   }
-
-    /*this.exp.getExpirationDate();
-    document.write("<p>" + Date() + "</p>");
-  }*/
 }
