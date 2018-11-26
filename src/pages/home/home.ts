@@ -24,9 +24,9 @@ export class HomePage {
     this.sortBy = s;
   }
 
-  getDate(name,date,type){
+  /*getDate(name,date,type){
 
     this.exp.getExpirationDate();
     document.write("<p>" + Date() + "</p>");
-  }
+  } */
 }

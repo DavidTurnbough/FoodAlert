@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
+import {ExpirationDataServiceProvider } from '../../providers/expiration-data-service';
+
+var list = require( '../../data/items.json');
 
 @Component({
   selector: 'page-Calender',
@@ -16,7 +19,25 @@ export class CalenderPage {
     currentDate: new Date()
   };
 
-  constructor(public navCtrl: NavController, private modalCtrl: ModalController, private alertCtrl: AlertController) { }
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
+
+    let items = list.Food;
+
+    for (let i= 0; i<items.length; i++)
+    {
+      let storage = '';
+      if(items[i].type == "1")
+      {
+        storage = 'refrigerator';
+      }
+      else
+      {
+        storage = 'counterTop';
+      }
+      this.addExpirationEvent(items[i].name, new Date(items[i].date), storage);
+    }
+
+  }
 
   addEvent() {
     let modal = this.modalCtrl.create('EventModalPage', {selectedDay: this.selectedDay});
@@ -35,6 +56,27 @@ export class CalenderPage {
           this.eventSource = events;
         });
       }
+    });
+  }
+
+  addExpirationEvent(food, date, storage) {
+
+    let start = new Date(this.exp.getExpirationDate(food, date, storage));
+    let end = start;
+
+    let event = {
+      title: food,
+      startTime: start,
+      endTime: end,
+      allDay: true
+    };
+
+    let events = this.eventSource;
+    events.push(event);
+
+    //this.eventSource = [];
+    setTimeout(() => {
+      this.eventSource = events;
     });
   }
 
