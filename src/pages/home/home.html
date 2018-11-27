@@ -20,7 +20,7 @@
       <h2>{{item.name}}</h2>
   	  <h2>{{getDateForm(item.date)}}</h2>
       <h2>{{this.formatDate(getDate(item.name,item.date,item.type))}}</h2>
-      <button (click)=toggleStor(item) id ="typeButton">
+      <button (click)=removeItem(item.name,item.date) id ="typeButton">
         <h2>Remove</h2>
       </button>
     </div>

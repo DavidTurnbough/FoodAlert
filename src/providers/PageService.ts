@@ -32,4 +32,12 @@ export class PageService {
     nav.push( SettingsPage );
   }
 
+  getPage(){
+    if(this.app.getActiveNav().getActive() != null)
+    {
+      let nav = this.app.getActiveNav().getActive().name;
+      return nav;
+    }
+  }
+
 }

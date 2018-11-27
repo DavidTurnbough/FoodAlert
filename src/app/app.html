@@ -5,7 +5,7 @@
 <ion-header id="main-header" no-border>
   <ion-toolbar transparent id="main-tool">
     <button ion-button menuToggle="left" left>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon name="menu" color="black"></ion-icon>
     </button>
     <ion-title center id="title">
       Food Alert
@@ -29,5 +29,7 @@
 
 <!-- Universal footer for some pages-->
 <ion-footer id="addFoot" no-border>
-  <button (click) = "goPicture()"><img/></button>
+  <span *ngIf="getPage() == 'CalenderPage' || getPage() == 'HomePage'">
+    <button (click) = "goPicture()"><img/></button>
+  </span>
 </ion-footer>

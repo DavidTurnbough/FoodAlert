@@ -39,4 +39,8 @@ export class MyApp {
   goList(type){
     this.pageService.goHome(type);
   }
+
+  getPage(){
+    return (this.pageService.getPage());
+  }
 }

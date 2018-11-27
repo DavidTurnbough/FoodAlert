@@ -14,6 +14,11 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toolbar-title.toolbar-title-md,
+.toolbar-title.toolbar-title-ios,
+.toolbar-title.toolbar-title-wp { color: map-get($colors, black); }
+
 p, h1, h2, h3, h4, h5, h6 {
 }
 
@@ -44,7 +49,7 @@ hr {
 }
 
 #hamMain{
-  background-color: map-get($colors,primary);
+  background-color: map-get($colors,tertiary);
   height: 100%;
 }
 
@@ -79,8 +84,9 @@ ion-nav {
 	background-size: contain;
   padding:3%;
   background: contain;
-  background-color: map-get($colors, ternary);
+  background-color: map-get($colors, primary);
   border-radius: 100% / 100%;
+  box-shadow: 1px 2px 2px map-get($colors, ternary); 
   margin:4%;
 }
 

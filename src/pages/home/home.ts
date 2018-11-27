@@ -25,6 +25,7 @@ export class HomePage {
 
   sorTog(s){
     this.sortBy = s;
+    alert(typeof(items));
   }
 
   getDate(name,date,type){
@@ -53,5 +54,16 @@ export class HomePage {
       item.type = 1;
     else
       item.type = 0;
+  }
+
+  removeItem(name,date){
+    for(let i = 0; i < items.Food.length; i++)
+    {
+      if(items.Food[i].name == name && items.Food[i].date == date)
+      {
+          items.Food.splice(i,1);
+          break;
+      }
+    }
   }
 }
