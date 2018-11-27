@@ -19,6 +19,12 @@ export class ItemDataServiceProvider {
     this.itemsObject = data;
   }
 
+  //Passes object to calendar
+  getData()
+  {
+    return this.itemsObject;
+  }
+
   //Push a new object to the internal list then immediately saves it to the json
   //Expects it is already in proper format
   addFood(foodOb: any)

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
 import {ExpirationDataServiceProvider } from '../../providers/expiration-data-service';
+import { ItemDataServiceProvider } from '../../providers/item-data-service';
 
-var list = require( '../../data/items.json');
+var list: any; //= require( '../../data/items.json');
 
 @Component({
   selector: 'page-Calender',
@@ -19,8 +20,8 @@ export class CalenderPage {
     currentDate: new Date()
   };
 
-  constructor(public navCtrl: NavController, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
-
+  constructor(public navCtrl: NavController, private itemDataService: ItemDataServiceProvider, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
+    list = this.itemDataService.getData();
     let items = list.Food;
 
     for (let i= 0; i<items.length; i++)
