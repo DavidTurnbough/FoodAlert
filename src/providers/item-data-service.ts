@@ -6,11 +6,23 @@ export class ItemDataServiceProvider {
 
   itemsObject: any;
   path: string;
+  fileReady = false;
 
   constructor(private file: File)
   {
     this.path = this.file.externalDataDirectory; //Define the path
     this.checkItemFile();     //Check if the json exists create one if it doesn't
+    console.log('Constructor ran!!!!!');
+  }
+
+  //
+  isReady(): Promise<boolean>
+  {
+    return new Promise<boolean>(resolve => {
+            setTimeout(() => {
+                resolve(this.fileReady);
+            },1000);
+        });
   }
 
   //Used to pass the json object read to the provider
@@ -20,9 +32,20 @@ export class ItemDataServiceProvider {
   }
 
   //Passes object to calendar
-  getData()
+  getData(item: number)
   {
-    return this.itemsObject;
+    return this.itemsObject.Food[item];
+  }
+
+  getAllData()
+  {
+    return this.itemsObject.Food;
+  }
+
+  //
+  getFoodNum()
+  {
+    return this.itemsObject.Food.length;
   }
 
   //Push a new object to the internal list then immediately saves it to the json
@@ -46,11 +69,13 @@ export class ItemDataServiceProvider {
     this.file.checkFile(this.path,'items.json').then(exists => {
         //This means the file exists and we can load in the data
         this.readItemFileText();
+        this.fileReady = true;
     }).catch(err => {
         //This means the file doesn't exist and we call to create one
         this.createItemFile();
         this.itemsObject = {'Food':[]}   //Initialize the items object to be empty
         this.saveData();    //save empty structure to file
+        this.fileReady = true;
     })
   }
 

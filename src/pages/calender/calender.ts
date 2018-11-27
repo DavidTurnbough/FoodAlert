@@ -4,8 +4,6 @@ import * as moment from 'moment';
 import {ExpirationDataServiceProvider } from '../../providers/expiration-data-service';
 import { ItemDataServiceProvider } from '../../providers/item-data-service';
 
-var list: any; //= require( '../../data/items.json');
-
 @Component({
   selector: 'page-Calender',
   templateUrl: 'calender.html'
@@ -14,6 +12,7 @@ export class CalenderPage {
   eventSource = [];
   viewTitle: string;
   selectedDay = new Date();
+  Food = null;
 
   calendar = {
     mode: 'month',
@@ -21,13 +20,19 @@ export class CalenderPage {
   };
 
   constructor(public navCtrl: NavController, private itemDataService: ItemDataServiceProvider, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
-    list = this.itemDataService.getData();
-    let items = list.Food;
 
-    for (let i= 0; i<items.length; i++)
+    this.itemDataService.isReady().then(ready => {
+      this.onReady();
+    });
+  }
+
+  onReady()
+  {
+    this.Food = this.itemDataService.getAllData();
+    for (let i= 0; i<this.Food.length; i++)
     {
       let storage = '';
-      if(items[i].type == "1")
+      if(this.Food[i].type == "1")
       {
         storage = 'refrigerator';
       }
@@ -35,7 +40,7 @@ export class CalenderPage {
       {
         storage = 'counterTop';
       }
-      this.addExpirationEvent(items[i].name, new Date(items[i].date), storage);
+      this.addExpirationEvent(this.Food[i].name, new Date(this.Food[i].date), storage);
     }
 
   }
@@ -46,6 +51,9 @@ export class CalenderPage {
     modal.onDidDismiss(data => {
       if (data) {
         let eventData = data;
+
+        //Write to json
+        this.itemDataService.addFood({'name':data.title,'date':data.startTime,'type':1});
 
         eventData.startTime = new Date(data.startTime);
         eventData.endTime = new Date(data.endTime);
@@ -75,7 +83,6 @@ export class CalenderPage {
     let events = this.eventSource;
     events.push(event);
 
-    //this.eventSource = [];
     setTimeout(() => {
       this.eventSource = events;
     });

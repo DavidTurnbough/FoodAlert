@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { ExpirationDataServiceProvider } from '../../providers/expiration-data-service';
-var items = require("../../data/items.json");
+import { ItemDataServiceProvider } from '../../providers/item-data-service';
+
+//var items = require("../../data/items.json");
 
 @Component({
   selector: 'page-home',
@@ -17,10 +19,12 @@ export class HomePage {
   storage = "";
   Today = null;
 
-  constructor(public navParams: NavParams, public exp: ExpirationDataServiceProvider) {
+  constructor(public navParams: NavParams, public exp: ExpirationDataServiceProvider, private itemDataService: ItemDataServiceProvider) {
     this.Type = navParams.get("Type");
-    this.Food = items.Food;
-    this.getToday();
+    this.itemDataService.isReady().then(ready => {
+      this.Food = this.itemDataService.getAllData();
+      this.getToday();
+    });
   }
 
   sorTog(s){

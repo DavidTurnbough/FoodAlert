@@ -16,6 +16,7 @@
 </ion-header>
 
 <ion-content>
+    <span *ngFor="let item of Food">
   <calendar [eventSource]="eventSource"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"
@@ -25,4 +26,5 @@
             step="30"
             class="calendar">
   </calendar>
+  </span>
 </ion-content>

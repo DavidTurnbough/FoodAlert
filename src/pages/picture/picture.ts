@@ -3,6 +3,7 @@ import { NavController} from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { ItemDataServiceProvider } from '../../providers/item-data-service';
+import { CalenderPage } from '../../pages/calender/calender';
 
 @Component({
   selector: 'page-Picture',
@@ -21,10 +22,12 @@ export class PicturePage{
     this.barcodeScanner.scan({showTorchButton: true,showFlipCameraButton: true,resultDisplayDuration: 0}).then(barcodeData => {
     this.toast.show(barcodeData.text,'2000','center');
     this.onScan(barcodeData.text);
-    this.navCtrl.pop(); //Goes back to the previous page
+
+    this.navCtrl.push( CalenderPage);
 
     }).catch(err => {
       console.log('Error', err);
+      this.navCtrl.push( CalenderPage);
     })
   }
 
