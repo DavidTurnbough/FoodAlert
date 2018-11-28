@@ -17,10 +17,24 @@
 
 .toolbar-title.toolbar-title-md,
 .toolbar-title.toolbar-title-ios,
-.toolbar-title.toolbar-title-wp { color: map-get($colors, black); }
+.toolbar-title.toolbar-title-wp { color: map-get($colors, black);
+font-family: 'ComfortaaB';
+font-size: 22px}
 
-p, h1, h2, h3, h4, h5, h6 {
+@font-face {
+    font-family: 'ComfortaaR';
+    src: url(./../assets/fonts/Comfortaa-Regular.otf) format('opentype');
 }
+
+@font-face {
+  font-family: 'ComfortaaB';
+  src: url(./../assets/fonts/Comfortaa-Bold.otf) format('opentype');
+}
+
+p, h1, h2, h3, h4, h5, h6, div {
+    font-family: 'ComfortaaR';
+}
+
 
 hr {
     display: block;
