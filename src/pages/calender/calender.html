@@ -11,15 +11,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <calendar [eventSource]="eventSource"
-            [calendarMode]="calendar.mode"
-            [currentDate]="calendar.currentDate"
-            (onEventSelected)="onEventSelected($event)"
-            (onTitleChanged)="onViewTitleChanged($event)"
-            (onTimeSelected)="onTimeSelected($event)"
-            step="30"
-            class="calendar"
-            onload="onReady()">
-  </calendar>
+<ion-content class="no-scroll">
+  <span *ngFor="let item of Food">
+    <calendar [eventSource]="eventSource"
+              [calendarMode]="calendar.mode"
+              [currentDate]="calendar.currentDate"
+              (onEventSelected)="onEventSelected($event)"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onTimeSelected)="onTimeSelected($event)"
+              step="30"
+              class="calendar"
+              onload="onReady()">
+    </calendar>
+  </span>
 </ion-content>

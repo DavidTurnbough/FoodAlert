@@ -11,6 +11,7 @@ import { ItemDataServiceProvider } from '../../providers/item-data-service';
 export class CalenderPage {
   eventSource = [];
   viewTitle: string;
+  Hack = [0,1];
   selectedDay = new Date();
   Food = null;
 
@@ -81,7 +82,6 @@ export class CalenderPage {
 
     let events = this.eventSource;
     events.push(event);
-    this.eventSource = [];
     setTimeout(() => {
       this.eventSource = events;
     });
