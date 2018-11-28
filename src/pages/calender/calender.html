@@ -12,16 +12,14 @@
 </ion-header>
 
 <ion-content>
-
   <calendar [eventSource]="eventSource"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"
             (onEventSelected)="onEventSelected($event)"
             (onTitleChanged)="onViewTitleChanged($event)"
             (onTimeSelected)="onTimeSelected($event)"
-            (QueryMode)="remote"
-            allDayLabel=""
             step="30"
-            class="calendar">
+            class="calendar"
+            onload="onReady()">
   </calendar>
 </ion-content>
