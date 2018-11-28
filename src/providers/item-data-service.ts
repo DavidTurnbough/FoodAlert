@@ -6,6 +6,7 @@ export class ItemDataServiceProvider {
 
   itemsObject: any;
   path: string;
+  fileReady = false;
 
   constructor(private file: File)
   {
@@ -13,10 +14,37 @@ export class ItemDataServiceProvider {
     this.checkItemFile();     //Check if the json exists create one if it doesn't
   }
 
+  //
+  isReady(): Promise<boolean>
+  {
+    return new Promise<boolean>(resolve => {
+            setTimeout(() => {
+                resolve(this.fileReady);
+            },1000);
+        });
+  }
+
   //Used to pass the json object read to the provider
   setData(data: any)
   {
     this.itemsObject = data;
+  }
+
+  //Passes object to calendar
+  getData(item: number)
+  {
+    return this.itemsObject.Food[item];
+  }
+
+  getAllData()
+  {
+    return this.itemsObject.Food;
+  }
+
+  //
+  getFoodNum()
+  {
+    return this.itemsObject.Food.length;
   }
 
   //Push a new object to the internal list then immediately saves it to the json
@@ -40,11 +68,13 @@ export class ItemDataServiceProvider {
     this.file.checkFile(this.path,'items.json').then(exists => {
         //This means the file exists and we can load in the data
         this.readItemFileText();
+        this.fileReady = true;
     }).catch(err => {
         //This means the file doesn't exist and we call to create one
         this.createItemFile();
         this.itemsObject = {'Food':[]}   //Initialize the items object to be empty
         this.saveData();    //save empty structure to file
+        this.fileReady = true;
     })
   }
 
@@ -75,5 +105,19 @@ export class ItemDataServiceProvider {
     {
       console.log(this.itemsObject.Food[i]);
     }
+  }
+
+  removeItem(foodOb: any)
+  {
+    for(let i = 0; i < this.itemsObject.Food.length; i++)
+    {
+      if(this.itemsObject.Food[i].name == foodOb.name && this.itemsObject.Food[i].date == foodOb.date)
+      {
+          this.itemsObject.Food.splice(i,1);
+          break;
+      }
+    }
+
+    this.saveData();
   }
 }
