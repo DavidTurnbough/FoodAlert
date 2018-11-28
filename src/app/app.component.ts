@@ -6,14 +6,16 @@ import { Nav } from 'ionic-angular';
 
 import { PageService } from '../providers/PageService';
 import { CalenderPage } from '../pages/calender/calender';
+import { HomePage } from '../pages/home/home';
 import { ItemDataServiceProvider } from '../providers/item-data-service';
+import { NotifcationServiceProvider } from '../providers/notifcation-service';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CalenderPage;
+  rootPage:any = HomePage;
   @ViewChild(Nav) navCtrl: Nav;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public pageService: PageService, public item: ItemDataServiceProvider) {

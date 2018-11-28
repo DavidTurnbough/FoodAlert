@@ -13,18 +13,20 @@ export class CalenderPage {
   viewTitle: string;
   selectedDay = new Date();
   Food = null;
+  Loader = [0,1];
 
   calendar = {
     mode: 'month',
     currentDate: new Date()
   };
 
-  constructor(public navCtrl: NavController, private itemDataService: ItemDataServiceProvider, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
+  constructor(public navCtrl: NavController,  private itemDataService: ItemDataServiceProvider, private modalCtrl: ModalController, private alertCtrl: AlertController, public exp: ExpirationDataServiceProvider) {
 
     this.itemDataService.isReady().then(ready => {
       this.onReady();
     });
   }
+
 
   onReady()
   {
@@ -101,6 +103,11 @@ export class CalenderPage {
       buttons: ['OK']
     })
     alert.present();
+  }
+
+  onEventChanged(event)
+  {
+
   }
 
   onTimeSelected(ev) {
