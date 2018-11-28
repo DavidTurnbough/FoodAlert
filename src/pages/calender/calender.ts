@@ -47,7 +47,7 @@ export class CalenderPage {
         let eventData = data;
 
         eventData.startTime = new Date(data.startTime);
-        eventData.endTime = new Date(data.endTime);
+        eventData.endTime = eventData.startTime;
 
         let events = this.eventSource;
         events.push(eventData);
@@ -74,7 +74,6 @@ export class CalenderPage {
     let events = this.eventSource;
     events.push(event);
 
-    //this.eventSource = [];
     setTimeout(() => {
       this.eventSource = events;
     });
@@ -85,13 +84,12 @@ export class CalenderPage {
   }
 
   onEventSelected(event) {
-    let start = moment(event.startTime).format('LLLL');
-    let end = moment(event.endTime).format('LLLL');
+    let start = moment(event.startTime).format('LL');
 
     let alert = this.alertCtrl.create({
       title: '' + event.title,
-      subTitle: 'From: ' + start + '<br>To: ' + end,
-      buttons: ['OK']
+      subTitle: start,
+      buttons: ['Dismiss']
     })
     alert.present();
   }

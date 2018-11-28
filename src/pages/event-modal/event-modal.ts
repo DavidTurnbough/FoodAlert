@@ -9,13 +9,13 @@ import * as moment from 'moment';
 })
 export class EventModalPage {
 
-  event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), allDay: false };
+  event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), allDay: true };
   minDate = new Date().toISOString();
 
   constructor(public navCtrl: NavController, private navParams: NavParams, public viewCtrl: ViewController) {
-    let preselectedDate = moment(this.navParams.get('selectedDay')).format();
-    this.event.startTime = preselectedDate;
-    this.event.endTime = preselectedDate;
+    let currentDate = moment(this.navParams.get('selectedDay')).format();
+    this.event.startTime = currentDate;
+    this.event.endTime = currentDate;
   }
 
   cancel() {
