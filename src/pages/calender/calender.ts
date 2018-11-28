@@ -11,7 +11,7 @@ import { ItemDataServiceProvider } from '../../providers/item-data-service';
 export class CalenderPage {
   eventSource = [];
   viewTitle: string;
-  Hack = [0,1];
+  Hack = null;
   selectedDay = new Date();
   Food = null;
 
@@ -30,6 +30,7 @@ export class CalenderPage {
   onReady()
   {
     this.Food = this.itemDataService.getAllData();
+    this.Hack =[0];
     for (let i= 0; i<this.Food.length; i++)
     {
       let storage = '';
@@ -43,6 +44,7 @@ export class CalenderPage {
       }
       this.addExpirationEvent(this.Food[i].name, new Date(this.Food[i].date), storage);
     }
+
   }
 
   addEvent() {
