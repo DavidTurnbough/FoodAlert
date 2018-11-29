@@ -10,17 +10,20 @@
     <ion-title center id="title">
       Food Alert
     </ion-title>
+    <button ion-button menuToggle="right" right>
+      <ion-icon name = "custom-food"></ion-icon>
+    </button>
   </ion-toolbar>
 </ion-header>
 
 <!-- Hamburger Menu -->
 <ion-menu [content] = "hamMenu" id="ham" side="left" type="overlay">
     <div id = "hamMain">
-      <div menuClose (click)="goCalender()">Calendar</div><hr/>
-      <div menuClose (click)="goList(0)">Unexpired Food</div><hr/>
-      <div menuClose (click)="goList(1)">Expired Food</div><hr/>
-      <div menuClose (click)="goPicture()">Store A Reciept</div><hr/>
-      <div menuClose (click)="goSettings()">Settings</div><hr/>
+      <div menuClose (click)="goCalender()"><img class="ham ham-cal"/>Calendar</div><hr/>
+      <div menuClose (click)="goList(0)"><img class="ham ham-fresh"/>Unexpired Food</div><hr/>
+      <div menuClose (click)="goList(1)"><img class="ham ham-rott"/>Expired Food</div><hr/>
+      <div menuClose (click)="goPicture()"><img class="ham ham-cam"/>Store A Reciept</div><hr/>
+      <div menuClose (click)="goSettings()"><img class="ham ham-sett"/>Settings</div><hr/>
     </div>
     <div id="extra">Log Out</div>
 </ion-menu>

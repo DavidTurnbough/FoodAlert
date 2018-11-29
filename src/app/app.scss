@@ -21,6 +21,23 @@
 font-family: 'ComfortaaB';
 font-size: 22px}
 
+
+ion-icon {
+  &[class*="custom-"] {
+    mask-size: contain;
+    mask-position: 75% 75%;
+    mask-repeat: no-repeat;
+    background: black;
+    width: 1.25em;
+    height: 1.25em;
+  }
+
+  &[class*="custom-food"] {
+    mask-image: url(../assets/icon/foodAlert.png);
+  }
+}
+
+
 @font-face {
     font-family: 'ComfortaaR';
     src: url(./../assets/fonts/Comfortaa-Regular.otf) format('opentype');
@@ -56,7 +73,8 @@ hr {
 }
 
 #title{
-  padding-right: 20%;
+  padding-left: 5%;
+  width:90%;
 }
 
 #ham{
@@ -71,8 +89,43 @@ hr {
   width: 100%;
   padding-bottom: 8%;
   padding-top: 8%;
-  text-align: center;
+  text-align: left;
   font-size: 1.25em;
+}
+
+.ham{
+  width:10%;
+	position: auto;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.ham-cal{
+  content: url(./../assets/icon/cal.png);
+}
+.ham-fresh{
+  content: url(./../assets/icon/fresh.png);
+}
+
+.ham-rott{
+  content: url(./../assets/icon/rotten.png);
+}
+
+.ham-sett{
+  content: url(./../assets/icon/settings.png);
+}
+
+.ham-cam{
+  content: url(./../assets/icon/Camera.png);
+}
+
+#FA{
+  content: url(./../assets/icon/foodAlert.png);
+  width:10%;
+  border:solid;
+  display: inline;
 }
 
 .toolbar {
